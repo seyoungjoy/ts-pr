@@ -45,7 +45,38 @@ function infLoop():never{
     }
 }
 
-// * enum : 비슷한 요소들을 묶어 양방향 맵핑 시키는 배열
-enum Os {
+// * enum
+// 양방향 맵핑 시켜주는 자료를 만들어줌. string 요소는 단방향 매핑
+// 비슷한 특징을 가진 자료들을 enum으로 정의하여 타입으로 지정해주면 해당 변수는 그 enum에 정의된 요소만 선언할 수 있다.
 
+enum Os{
+    Window = 3,
+    Ios,
+    Android = 10
 }
+
+console.log(Os['Window']) //3
+console.log(Os[3]); //Window
+
+console.log(Os['Android']) //10
+console.log(Os[10]); //Android
+
+// string이 요소로 들어가면 단방향 맵핑으로 변함.
+enum OsString {
+    Window = 'win',
+    Ios = 'ios',
+    Android = 'and'
+}
+
+console.log(OsString['Window'])
+// console.log(OsString['win']) //undefined
+
+// enum 타입으로 변수를 선언해주면 해당 enum 안에 있는 요소들만 사용할 수 있다.
+let myOs:OsString;
+
+myOs = OsString.Android;
+
+// * null, undefined
+
+let aa:null = null;
+let bb:undefined = undefined;
